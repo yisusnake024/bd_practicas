@@ -1,0 +1,102 @@
+/* Estilo general de la tabla */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    margin: 20px 0;
+}
+
+/* Encabezado de la tabla */
+th {
+    background-color: #4CAF50;
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+    font-size: 14px;
+}
+
+/* Celdas de la tabla */
+td {
+    padding: 8px;
+    text-align: center;
+    border: 1px solid #ddd;
+    font-size: 14px;
+}
+
+/* Fila alterna de la tabla (rayas) */
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Fila cuando pasa el ratón por encima */
+tr:hover {
+    background-color: #e2e2e2;
+}
+
+/* Estilos de las celdas para los nombres según las notas */
+.green {
+    color: green;
+}
+
+.yellow {
+    color: yellow;
+}
+
+.orange {
+    color: orange;
+}
+
+/* Resaltar la primera fila (encabezado) */
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* Ajustes de las celdas para mayor visibilidad */
+td, th {
+    word-wrap: break-word;
+    font-size: 14px;
+}
+
+/* Mejora la visibilidad de los bordes y las líneas */
+table, th, td {
+    border: 1px solid #ccc;
+}
+
+/* Sombra sutil para dar un aspecto más moderno */
+table {
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Ajustes en el diseño de las celdas para que se vean más organizadas */
+td, th {
+    text-align: center;
+}
+
+/* Estilo para la tabla con anchos dinámicos */
+table {
+    table-layout: fixed;
+}
+
+/* Mejora la visibilidad de los bordes y las líneas */
+th, td {
+    border-left: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+}
+
+th:first-child, td:first-child {
+    border-left: none; /* Elimina el borde izquierdo para la primera columna */
+}
+
+/* Celda de la fila del encabezado */
+th {
+    text-align: center;
+    vertical-align: middle;
+}
+
+/* Estilos adicionales */
+td.black {
+    color: black;  /* En caso de que no cumpla con ninguna condición */
+}

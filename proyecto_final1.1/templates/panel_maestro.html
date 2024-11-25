@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='panel_maestro.css') }}">
+    <link rel="icon" href="./static/imagenes/logo.png" type="image/icon">
+    <title>Panel Maestro</title>
+</head>
+<body>
+    <div class="contenedor">
+        <img src="{{ url_for('static', filename='imagenes/fondos.jpg') }}" alt="Logo" class="logo">
+        <h1>Gestión de Estudiantes</h1>
+        <div class="header-container">
+            <h2>Menú de Opciones</h2>
+            <button class="hamburger" onclick="toggleMenu()">☰</button>
+        </div>
+
+        <div id="menu" class="menu hide">
+            <div class="button-container">
+                <button class="button" onclick="location.href='/agregar_estudiante'">Agregar Estudiantes</button>
+                <button class="button" onclick="location.href='/agregar_semanas'">Agregar Semanas</button>
+                <button class="button" onclick="location.href='/agregar_notas'">Agregar Notas</button>
+                <button class="button" onclick="location.href='/agregar_encuentro'">Agregar Encuentro</button>
+                <button class="button" onclick="location.href='/agregar_informe'">Agregar Informe</button>
+                <button class="button" onclick="location.href='/consultas'">Consultar</button>
+                <button class="button" onclick="location.href='/eliminar'">Eliminar</button>
+                <button class="button" onclick="location.href='/actualizar_estudiante'">Actualizar Estudiantes</button>
+                <button class="button" onclick="location.href='/archivos_registrados'">Subir Archivos</button>
+                <button class="button" onclick="location.href='/mostrar_tabla'">Mostrar Tabla</button>
+                <button class="button" onclick="confirmarCerrarSesion()">Cerrar Sesión</button>
+            </div>
+        </div>
+        <div id="modalConfirmacion" class="modal">
+            <div class="modal-contenido">
+                <h3>¿Estás seguro de que quieres cerrar sesión?</h3>
+                <button class="modal-boton" onclick="cerrarSesion()">Sí</button>
+                <button class="modal-boton" onclick="cerrarModal()">No</button>
+            </div>
+        </div>
+
+        <script>
+            function toggleMenu() {
+                const menu = document.getElementById('menu');
+                menu.classList.toggle('show');
+            }
+
+            function confirmarCerrarSesion() {
+                const modal = document.getElementById('modalConfirmacion');
+                modal.classList.add('show');  // Muestra el modal
+            }
+
+            function cerrarModal() {
+                const modal = document.getElementById('modalConfirmacion');
+                modal.classList.remove('show');  // Oculta el modal
+            }
+
+            function cerrarSesion() {
+                // Redirige o cierra sesión según la lógica que necesites
+                location.href = '/';  // Simulación de cierre de sesión
+            }
+        </script>
+    </div>
+</body>
+</html>
+

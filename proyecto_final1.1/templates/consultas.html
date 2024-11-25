@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultas</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='consultas.css') }}">
+    <link rel="icon" href="./static/imagenes/logo.png" type="image/icon">
+</head>
+<body>
+    <div class="contenedor">
+        <img src="{{ url_for('static', filename='imagenes/fondos.jpg') }}" alt="Logo" class="logo">
+        <h1>Consultar Estudiante</h1>
+        <form action="/consultas" method="post" class="form-consulta" target="_blank"> <!-- target="_blank" abre la consulta en una nueva ventana -->
+            <div class="grupo-input">
+                <label for="codigo">CEDULA.E:</label>
+                <input type="text" id="codigo" name="codigo" class="input-codigo" required>
+                <button type="submit" class="boton-consultar">Consultar</button>
+            </div>
+        </form>
+        <a href="/panel_maestro" class="btn-salir">ATRAS</a>
+    </div>
+</body>
+</html>
+
+
+
+
+
+

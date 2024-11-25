@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registros de Estudiantes</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='mostrar_tabla.css') }}">
+</head>
+<body>
+    <h1>Registros de Estudiantes</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Cédula</th>
+                <th>Nombres</th>
+                <th>Apellidos</th>
+                <th>Teléfono</th>
+                <th>Correo</th>
+                <th>Tutor Académico</th>
+                <th>Tutor Empresarial</th>
+                <th>Empresa</th>
+                <th>Semana</th>
+                <th>Fecha Inicio</th>
+                <th>Fecha Final</th>
+                <th>Horas Registradas</th>
+                <th>Nota Tutor Académico</th>
+                <th>Promedio Encuentros</th>
+                <th>Promedio Sustentación</th>
+                <th>Evaluación Tutor Empresarial</th>
+                <th>Autoevaluación Tutor Académico</th>
+                <th>Certificación Práctica</th>
+                <th>Evaluación Estudiante Tutor</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for registro in registros %}
+            <tr>
+                <td>{{ registro[0] }}</td>
+                <td>{{ registro[1] }}</td>
+                <td>{{ registro[2] }}</td>
+                <td>{{ registro[3] }}</td>
+                <td>{{ registro[4] }}</td>
+                <td>{{ registro[5] }}</td>
+                <td>{{ registro[6] }}</td>
+                <td>{{ registro[7] }}</td>
+                <td>{{ registro[9] }}</td>
+                <td>{{ registro[10] }}</td>
+                <td>{{ registro[11] }}</td>
+                <td>{{ registro[12] }}</td>
+                <td class="{% if 4 <= registro[13] <= 5 %}green
+                           {% elif 3 <= registro[13] <= 3.9 %}orange
+                           {% elif 1 <= registro[13] <= 2.9 %}red
+                           {% endif %}">
+                    {{ registro[13] }}
+                </td>
+                <td class="{% if 4 <= registro[14] <= 5 %}green
+                           {% elif 3 <= registro[14] <= 3.9 %}orange
+                           {% elif 1 <= registro[14] <= 2.9 %}red
+                           {% endif %}">
+                    {{ registro[14] }}
+                </td>
+                <td class="{% if 4 <= registro[15] <= 5 %}green
+                           {% elif 3 <= registro[15] <= 3.9 %}orange
+                           {% elif 1 <= registro[15] <= 2.9 %}red
+                           {% endif %}">
+                    {{ registro[15] }}
+                </td>
+                <td class="{% if 4 <= registro[16] <= 5 %}green
+                           {% elif 3 <= registro[16] <= 3.9 %}orange
+                           {% elif 1 <= registro[16] <= 2.9 %}red
+                           {% endif %}">
+                    {{ registro[16] }}
+                </td>
+                <td>{{ registro[17] }}</td>
+                <td>{{ registro[18] }}</td>
+                <td>{{ registro[19] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

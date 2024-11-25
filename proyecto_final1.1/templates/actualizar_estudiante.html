@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actualizar Estudiante</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='actualizar_estudiante.css') }}">
+    <link rel="icon" href="./static/imagenes/logo.png" type="image/icon">
+    <script>
+        // Función para mostrar la sección correspondiente
+        function showSection(sectionIndex) {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach((section, index) => {
+                section.classList.remove('active');
+                if (index === sectionIndex) {
+                    section.classList.add('active');
+                }
+            });
+
+            const buttons = document.querySelectorAll('.nav-button');
+            buttons.forEach((button, index) => {
+                button.classList.remove('active-button');
+                if (index === sectionIndex) {
+                    button.classList.add('active-button');
+                }
+            });
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Actualizar Datos del Estudiante</h2>
+
+        <!-- Botones de Navegación entre Secciones -->
+        <div class="navigation-buttons">
+            <button class="nav-button active-button" onclick="showSection(0)">Información del Estudiante</button>
+            <button class="nav-button" onclick="showSection(1)">Datos de la Semana</button>
+            <button class="nav-button" onclick="showSection(2)">Encuentros</button>
+            <button class="nav-button" onclick="showSection(3)">Informes</button>
+            <button class="nav-button" onclick="showSection(4)">Notas</button>
+        </div>
+
+                <!-- Formulario para actualizar los datos -->
+                <form action="{{ url_for('actualizar_estudiante') }}" method="POST">
+                    <div class="section active">
+                        <h3>Actualiza Información del Estudiante</h3>
+                        <div class="form-group">
+                            <label for="cedula_estudiante">Cédula del estudiante:</label>
+                            <input type="text" id="cedula_estudiante" name="cedula_estudiante" value="{{ estudiante['cedula_estudiante'] }}" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="nombres">Nombres:</label>
+                            <input type="text" id="nombres" name="nombres" value="{{ estudiante['nombres'] }}" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="apellidos">Apellidos:</label>
+                            <input type="text" id="apellidos" name="apellidos" value="{{ estudiante['apellidos'] }}" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="telefono">Teléfono:</label>
+                            <input type="text" id="telefono" name="telefono" value="{{ estudiante['telefono'] }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="correo">Correo:</label>
+                            <input type="email" id="correo" name="correo" value="{{ estudiante['correo'] }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="Nombre_Tutor_Academico">Tutor Académico:</label>
+                            <input type="text" id="Nombre_Tutor_Academico" name="Nombre_Tutor_Academico" value="{{ estudiante['Nombre_Tutor_Academico'] }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="Nombre_Tutor_Empresarial">Tutor Empresarial:</label>
+                            <input type="text" id="Nombre_Tutor_Empresarial" name="Nombre_Tutor_Empresarial" value="{{ estudiante['Nombre_Tutor_Empresarial'] }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="Nombre_Empresa">Empresa:</label>
+                            <input type="text" id="Nombre_Empresa" name="Nombre_Empresa" value="{{ estudiante['Nombre_Empresa'] }}">
+                        </div>
+                        <button type="submit" name="update_info_estudiante">Actualizar Datos</button>
+                    </div>
+
+            <!-- Sección 2: Datos de la Semana -->
+            <div class="section">
+                <h3>Registro de Semana</h3>
+                <div class="form-group">
+                    <label for="fecha_inicio">Fecha de Inicio:</label>
+                    <input type="date" id="fecha_inicio" name="fecha_inicio" required>
+                </div>
+                <div class="form-group">
+                    <label for="fecha_final">Fecha de Fin:</label>
+                    <input type="date" id="fecha_final" name="fecha_final" required>
+                </div>
+                <div class="form-group">
+                    <label for="cedula_estudiante">Cédula del Estudiante:</label>
+                    <input type="text" id="cedula_estudiante" name="cedula_estudiante" required>
+                </div>
+                <div class="form-group">
+                    <label for="horas_registradas">Horas Registradas:</label>
+                    <input type="number" id="horas_registradas" name="horas_registradas" required>
+                </div>
+                <div class="form-group">
+                    <label for="nota_tutor_academico">Nota del Tutor Académico:</label>
+                    <input type="number" id="nota_tutor_academico" name="nota_tutor_academico" required>
+                </div>
+                <div class="form-group">
+                    <label for="numero_semana">Número de Semana:</label>
+                    <input type="number" id="numero_semana" name="numero_semana" required>
+                </div>
+                <div class="form-group">
+                    <label for="numero_informe">Número de Informe:</label>
+                    <input type="number" id="numero_informe" name="numero_informe" required>
+                </div>
+                <button type="submit" name="update_agregar_semana">Actualizar Informe</button>
+            </div>
+
+            <!-- Sección 3: Encuentros -->
+            <div class="section">
+                <h3>Agregar Encuentro</h3>
+                <div class="form-group">
+                    <label for="cedula_estudiante">Cédula del Estudiante:</label>
+                    <input type="text" id="cedula_estudiante" name="cedula_estudiante" required pattern="\d*">
+                </div>
+                <div class="form-group">
+                    <label for="numero_encuentro">Número de Encuentro:</label>
+                    <input type="text" id="numero_encuentro" name="numero_encuentro" required pattern="\d*">
+                </div>
+                <div class="form-group">
+                    <label for="nota_encuentro">Nota del Encuentro:</label>
+                    <input type="text" id="nota_encuentro" name="nota_encuentro" required>
+                </div>
+                <button type="submit" name="update_encuentro">Actualizar Informe</button>
+            </div>
+
+            <!-- Sección 4: Informes -->
+            <div class="section">
+                <h3>Actualizar Informes</h3>
+                <div class="form-group">
+                    <label for="cedula_estudiante">Cédula Estudiante:</label>
+                    <input type="text" id="cedula_estudiante" name="cedula_estudiante" required pattern="\d*" value="{{ estudiante['cedula_estudiante'] }}">
+                </div>
+                <div class="form-group">
+                    <label for="numero_informe">Número de Informe:</label>
+                    <input type="number" id="numero_informe" name="numero_informe" value="{{ estudiante['numero_informe'] }}">
+                </div>
+                <div class="form-group">
+                    <label for="entrega">Entrega del Informe:</label>
+                    <input type="checkbox" id="entrega" name="entrega" value="{{ estudiante['entrega'] }}">
+                </div>
+                <div class="form-group">
+                    <label for="nota_evaluacion">Nota de Evaluación:</label>
+                    <input type="text" id="nota_evaluacion" name="nota_evaluacion" value="{{ estudiante['nota_evaluacion'] }}">
+                </div>
+                <div class="form-group">
+                    <label for="nota_sustentacion">Nota de Sustentación:</label>
+                    <input type="text" id="nota_sustentacion" name="nota_sustentacion" value="{{ estudiante['nota_sustentacion'] }}">
+                </div>
+                <button type="submit" name="update_informe">Actualizar Informe</button>
+            </div>
+
+            <!-- Sección 5: Agregar Notas -->
+            <div class="section">
+                <h3>Agregar Evaluación</h3>
+                <div class="form-group">
+                    <label for="cedula_estudiante">Cédula Estudiante:</label>
+                    <input type="text" id="cedula_estudiante" name="cedula_estudiante" required pattern="\d*">
+                </div>
+                <div class="form-group">
+                    <label for="autoevaluacion_tutor_academico">Autoevaluación Tutor Académico:</label>
+                    <input type="checkbox" id="autoevaluacion_tutor_academico" name="autoevaluacion_tutor_academico" value="1">
+                </div>
+                <div class="form-group">
+                    <label for="certifiacion_practica">Certificación Práctica:</label>
+                    <input type="checkbox" id="certifiacion_practica" name="certifiacion_practica" value="1">
+                </div>
+                <div class="form-group">
+                    <label for="evaluacion_estudiante_tutor">Evaluación Estudiante por Tutor:</label>
+                    <input type="checkbox" id="evaluacion_estudiante_tutor" name="evaluacion_estudiante_tutor" value="1">
+                </div>
+                <div class="form-group">
+                    <label for="evaluacion_tutor_empresarial">Evaluación Tutor Empresarial:</label>
+                    <input type="text" id="evaluacion_tutor_empresarial" name="evaluacion_tutor_empresarial" required>
+                </div>
+                <button type="submit" name="update_notas">Actualizar Notas</button>
+            </div>
+
+        </form>
+    </div>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+

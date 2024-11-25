@@ -1,0 +1,152 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('imagenes/imagen_login.jpeg'); /* Asegúrate de que la ruta sea correcta */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedor {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 40px 40px 60px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 40px;
+    box-shadow: 0 4px 20px rgba(180, 13, 13, 0.1);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 2s, borderGlow 3s ease-in-out infinite alternate;
+    width: 100%;
+}
+
+@keyframes borderGlow {
+    0% {
+        border: 3px solid rgba(255, 255, 255, 0.5);
+    }
+    50% {
+        border: 3px solid #1fb408;
+    }
+    100% {
+        border: 3px solid rgba(255, 255, 255, 0.5);
+    }
+}
+
+.contenedor .logo {
+    width: 100%;
+    height: auto;
+    margin-bottom: 30px;
+    animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+    0% {
+        transform: translateY(0);
+    }
+    25% {
+        transform: translateY(-10px);
+    }
+    50% {
+        transform: translateY(0);
+    }
+    75% {
+        transform: translateY(-5px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+h1 {
+    color: #333;
+    margin-top: 20px;
+    font-size: 30px;
+}
+
+.grupo-input {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 20px;
+    width: 100%;
+    gap: 10px;
+}
+
+label {
+    font-weight: bold;
+    font-size: 22px;
+    margin-right: 10px;
+    display: inline-block;
+}
+
+.input-codigo {
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    font-size: 16px;
+    width: 70%;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+}
+
+.input-codigo:focus {
+    border-color: #5cb85c;
+    outline: none;
+}
+
+.boton-eliminar {
+    padding: 10px 20px;
+    background-color: #1fb408;
+    color: white;
+    border: none;
+    border-radius: 40px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: auto;
+}
+
+.boton-eliminar:hover {
+    background-color: #0fb446;
+}
+
+.mensaje {
+    margin-top: 2px;
+    color: #c40909;
+    font-size: 20px;
+}
+
+.btn-salir {
+    background-color: #d9534f;
+    border: none;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 40px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s;
+    margin-top: 20px;
+}
+
+.btn-salir:hover {
+    background-color: #c9302c;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(1.05);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
